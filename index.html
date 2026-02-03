@@ -95,6 +95,9 @@
         
         .nav-glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
         
+        .check-list li { position: relative; padding-left: 1.5rem; }
+        .check-list li::before { content: '✔'; position: absolute; left: 0; color: var(--logo-gold); }
+        
         /* Mobile Menu */
         #mobile-menu {
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -185,21 +188,31 @@
         <div class="scroll-down">Scroll</div>
     </section>
 
-    <!-- Concept Section (Simplified for Mobile) -->
+    <!-- Concept Section -->
     <section id="concept" class="py-20 md:py-40 px-6 max-w-4xl mx-auto text-center">
         <span class="text-gold text-[10px] tracking-[0.4em] uppercase mb-8 block font-bold">Nature & Harmony</span>
         
-        <div class="mb-12 md:mb-20">
-            <h2 class="text-xl md:text-4xl serif font-normal leading-[2] md:leading-relaxed text-black">
+        <div class="mb-12 md:mb-16">
+            <h2 class="text-xl md:text-4xl serif font-normal leading-[1.8] md:leading-relaxed text-black">
                 小山市で叶える、韓国式ピラティス。<br>
-                「整い、満たされる」凛とした美しさを。
+                「整い、満たされる」凛とした美しさ
             </h2>
+        </div>
+
+        <!-- Target Audience Points -->
+        <div class="max-w-md mx-auto py-8 md:py-10 border-y border-gray-100 mb-12 md:mb-16">
+            <ul class="check-list text-left inline-block space-y-4 text-black serif font-medium text-[13px] md:text-base">
+                <li>韓国式ピラティスでしなやかなボディラインを作りたい</li>
+                <li>忙しい日常の中でも、質を大切にしたい</li>
+                <li>年齢を重ねても、美しく動ける身体でいたい</li>
+                <li>体重だけではなく「佇まい」を整えたい</li>
+            </ul>
         </div>
 
         <div class="flex flex-col items-center">
             <a href="https://airrsv.net/studioseren/calendar" target="_blank" class="btn-reserve px-12 py-5 rounded-full font-bold shadow-lg flex items-center gap-3">
                 <i class="far fa-calendar-check text-xl"></i>
-                <span class="tracking-widest">体験レッスンを予約する</span>
+                <span class="tracking-widest">体験レッスンをWeb予約</span>
             </a>
             <p class="text-[10px] mt-6 tracking-[0.2em] text-gray-400">完全予約制・マンツーマン専門スタジオ</p>
         </div>
@@ -229,7 +242,7 @@
                     <h3 class="text-xl md:text-2xl mb-4 md:mb-6 serif font-bold">韓国式マシンピラティス</h3>
                     <p class="text-black serif text-xs md:text-sm mb-4">美しさを追求する「韓国式」メソッド</p>
                     <p class="text-gray-500 text-[13px] md:text-sm leading-[2.2] md:leading-[2.4] font-light">
-                        韓国の美容業界で確立された、ボディメイクに特化したピラティス. 専用のマシンを使用し、しなやかな曲線や、凛とした立ち姿をデザインします.
+                        韓国の美容業界で確立された、ボディメイクに特化したピラティス. 専用のマシンを使用し、ただ鍛えるだけでなく、女性らしいしなやかな曲線や、男性の凛とした立ち姿をデザインします.
                     </p>
                 </div>
                 <!-- 02 Personal Training -->
@@ -244,6 +257,13 @@
                         ピラティスで整えた身体を、効率的なトレーニングでさらに引き締めます. 完全予約制の貸切スタジオだから、集中力が違います.
                     </p>
                 </div>
+            </div>
+            
+            <div class="mt-24 text-center">
+                <a href="https://airrsv.net/studioseren/calendar" target="_blank" class="btn-gold px-12 py-5 rounded-full font-bold shadow-lg inline-flex items-center gap-3">
+                    <i class="far fa-calendar-check text-xl"></i>
+                    <span class="tracking-widest">体験レッスンをWeb予約</span>
+                </a>
             </div>
         </div>
     </section>
@@ -307,7 +327,7 @@
             <div class="text-center">
                 <a href="https://airrsv.net/studioseren/calendar" target="_blank" class="btn-reserve px-12 py-5 rounded-full font-bold shadow-xl inline-flex items-center gap-4 text-white">
                     <i class="far fa-calendar-check text-2xl"></i>
-                    <span class="tracking-widest">体験レッスンをWeb予約する</span>
+                    <span class="tracking-widest">体験レッスンをWeb予約</span>
                 </a>
             </div>
         </div>
