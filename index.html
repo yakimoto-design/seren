@@ -2,20 +2,22 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO対策: タイトルとディスクリプション -->
+    <!-- スマホでの意図しないズームや横揺れを防止するビューポート設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO対策 -->
     <title>SEREN | 小山市の韓国式マシンピラティス×パーソナルジム</title>
     <meta name="description" content="栃木県小山市の完全個室パーソナルスタジオSEREN。話題の韓国式マシンピラティスによる姿勢改善とパーソナルトレーニングで、美しくしなやかな身体へ。30代〜50代の男女に選ばれる隠れ家サロン。">
     <meta name="keywords" content="小山市,ピラティス,韓国式ピラティス,マシンピラティス,パーソナルジム,完全個室,マンツーマン,姿勢改善,ダイエット,メンズピラティス,SEREN,セレン">
-<link rel="icon" href="https://github.com/yakimoto-design/seren/blob/main/favicon.ico.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/yakimoto-design/seren/blob/main/favicon.ico.png?raw=true" type="image/x-icon">
     
-    <!-- AI/SNS対策: Open Graph -->
+    <!-- Open Graph (SNS対策) -->
     <meta property="og:title" content="SEREN | 小山市の韓国式マシンピラティス×パーソナルジム">
     <meta property="og:description" content="本場・韓国のメソッドを取り入れたマシンピラティス。鍛える場所ではなく、整い、満たされるための貸切スタジオ。">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%83%AD%E3%82%B4.png?raw=true">
+    <meta property="og:image" content="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%97.png?raw=true">
     
-    <!-- 構造化データ (Google/AI対策) -->
+    <!-- 構造化データ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,15 +40,6 @@
         "longitude": 139.8085
       },
       "url": "https://studioseren.com",
-      "telephone": "",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "09:00",
-          "closes": "20:00"
-        }
-      ],
       "priceRange": "¥1,000 - ¥60,000"
     }
     </script>
@@ -65,8 +58,15 @@
             --vibrant-gold: #D4AF37;
             --organic-cream: #FAF9F6;
         }
+        /* html/bodyの横揺れを徹底排除 */
+        html, body { 
+            overflow-x: hidden; 
+            width: 100%; 
+            position: relative;
+            -webkit-text-size-adjust: 100%;
+        }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Noto Sans JP', sans-serif; color: #333; background-color: #fff; overflow-x: hidden; }
+        body { font-family: 'Noto Sans JP', sans-serif; color: #333; background-color: #fff; }
         h1, h2, h3, .serif { font-family: 'Noto Serif JP', serif; }
         
         .hero-bg {
@@ -94,7 +94,7 @@
         .btn-reserve { background-color: var(--forest-deep); color: white; transition: all 0.4s; letter-spacing: 0.1em; border: 1px solid var(--logo-gold); }
         .btn-reserve:hover { background-color: var(--logo-gold); transform: translateY(-2px); }
         
-        .nav-glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
+        .nav-glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
         
         .check-list li { position: relative; padding-left: 1.5rem; }
         .check-list li::before { content: '✔'; position: absolute; left: 0; color: var(--logo-gold); }
@@ -111,12 +111,15 @@
             animation: pulse 2s infinite;
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+        
+        /* 画像がコンテナを突き抜けないように保証 */
+        img { max-width: 100%; height: auto; }
     </style>
 </head>
-<body class="leading-relaxed">
+<body>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-[100] nav-glass border-b border-gray-100/50">
+    <nav class="fixed w-full top-0 z-[100] nav-glass border-b border-gray-100/50">
         <div class="max-w-7xl mx-auto px-5 h-20 md:h-24 flex items-center justify-between">
             <a href="#" class="serif tracking-[0.2em] group">
                 <span class="text-xl md:text-2xl block leading-none font-bold uppercase">SEREN</span>
@@ -133,7 +136,7 @@
                 <a href="https://airrsv.net/studioseren/calendar" target="_blank" class="btn-gold px-8 py-3 rounded-full font-bold shadow-sm text-white">Web予約</a>
             </div>
 
-            <button id="menu-toggle" class="md:hidden text-black focus:outline-none p-2">
+            <button id="menu-toggle" class="md:hidden text-black focus:outline-none p-2" aria-label="Menu">
                 <div class="w-6 h-0.5 bg-black mb-1.5 transition-all"></div>
                 <div class="w-6 h-0.5 bg-black mb-1.5"></div>
                 <div class="w-6 h-0.5 bg-black"></div>
@@ -142,7 +145,7 @@
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-[90] bg-white flex flex-col items-center justify-center space-y-8 text-center">
+    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-white flex flex-col items-center justify-center space-y-8 text-center">
         <a href="#concept" class="text-lg serif tracking-widest text-black menu-link">Concept</a>
         <a href="#service" class="text-lg serif tracking-widest text-black menu-link">Service</a>
         <a href="#trainer" class="text-lg serif tracking-widest text-black menu-link">Trainer</a>
@@ -202,16 +205,16 @@
     <!-- Gallery Section -->
     <section class="grid grid-cols-2 md:grid-cols-4 gap-1 bg-white border-y border-gray-50">
         <div class="aspect-square overflow-hidden group">
-            <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%91%EF%BC%91.png?raw=true" alt="栃木県小山市のピラティススタジオSERENの内装インテリア1" class="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110">
+            <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%91%EF%BC%91.png?raw=true" alt="栃木県小山市のピラティススタジオSERENの内装" class="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110">
         </div>
         <div class="aspect-square overflow-hidden group">
-            <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%91%EF%BC%92.png?raw=true" alt="栃木県小山市のピラティススタジオSERENの内装インテリア2" class="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110">
+            <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%91%EF%BC%92.png?raw=true" alt="ピラティススタジオSERENの内装2" class="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110">
         </div>
         <div class="aspect-square overflow-hidden group">
-            <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%91%EF%BC%93.png?raw=true" alt="小山市の韓国式ピラティスSERENの贅沢なトレーニング空間" class="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110">
+            <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%91%EF%BC%93.png?raw=true" alt="小山市の韓国式ピラティスSEREN" class="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110">
         </div>
         <div class="aspect-square overflow-hidden group">
-            <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%99.png?raw=true" alt="SEREN小山の落ち着けるラウンジスペース" class="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110">
+            <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%99.png?raw=true" alt="SEREN小山のラウンジ" class="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110">
         </div>
     </section>
 
@@ -223,7 +226,7 @@
                 <!-- 01 Machine Pilates -->
                 <div class="flex flex-col group">
                     <div class="aspect-[4/3] mb-8 md:mb-12 overflow-hidden shadow-xl rounded-sm">
-                        <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%91%EF%BC%90.png?raw=true" alt="小山市で体験できる最新の韓国式マシンピラティス器具" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%91%EF%BC%90.png?raw=true" alt="韓国式マシンピラティス器具" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     </div>
                     <span class="text-gold serif text-[10px] md:text-[11px] tracking-[0.4em] mb-3 uppercase">01. Korean-style Machine Pilates</span>
                     <h3 class="text-xl md:text-2xl mb-4 md:mb-6 serif font-bold">韓国式マシンピラティス</h3>
@@ -235,13 +238,13 @@
                 <!-- 02 Personal Training -->
                 <div class="flex flex-col group">
                     <div class="aspect-[4/3] mb-8 md:mb-12 overflow-hidden shadow-xl rounded-sm">
-                        <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%98.png?raw=true" alt="小山市の個室パーソナルジムSERENでのトレーニング風景" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <img src="https://github.com/yakimoto-design/seren/blob/main/iamge/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%98.png?raw=true" alt="パーソナルトレーニング風景" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     </div>
                     <span class="text-gold serif text-[10px] md:text-[11px] tracking-[0.4em] mb-3 uppercase">02. Personal Training</span>
                     <h3 class="text-xl md:text-2xl mb-4 md:mb-6 serif font-bold">パーソナルトレーニング</h3>
                     <p class="text-black serif text-xs md:text-sm mb-4">最短で理想を叶える、私だけの空間</p>
                     <p class="text-gray-500 text-[13px] md:text-sm leading-[2.2] md:leading-[2.4] font-light">
-                        効率的なボディメイクを徹底サポート。必要な箇所をピンポイントで引き締めます。完全予約制の貸切スタジオだから、集中力が違います。
+                        効率的なボディメイクを徹底サポート。必要な箇所をピンポイントで引き締めます。完全予約制の貸切スタジオだから、男女ともに集中力が違います。
                     </p>
                 </div>
             </div>
@@ -252,25 +255,25 @@
     <section id="trainer" class="py-24 md:py-48 px-6 bg-white border-y border-gray-50 text-center">
         <div class="max-w-5xl mx-auto">
             <span class="text-gold text-[10px] tracking-[0.4em] uppercase mb-8 block font-bold">Trainers</span>
-            <h2 class="text-2xl md:text-4xl mb-20 md:mb-32 serif font-normal text-black tracking-[0.1em]">Message from Trainers</h2>
+            <h2 class="text-2xl md:text-4xl mb-20 md:mb-32 serif font-normal text-black tracking-[0.1em]">Trainers</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 text-center">
                 <!-- Nana -->
-                <div class="relative px-4">
+                <div class="px-4">
                     <span class="text-gold serif text-[10px] tracking-[0.3em] uppercase block mb-3 opacity-60">Instructor</span>
                     <h3 class="text-xl md:text-3xl mb-8 serif font-bold text-black tracking-[0.3em]">Nana</h3>
                     <div class="w-8 h-px bg-gold mx-auto mb-8"></div>
                     <p class="text-gray-600 text-[15px] md:text-[16px] leading-[2.2] font-light italic">
-                        「マシンピラティス×筋トレで、<br class="hidden md:block">しなやかで健康的な体づくりをサポートします！<br class="hidden md:block">初心者の方も大歓迎です✨」
+                        「マシンピラティス×筋トレで、しなやかで健康的な体づくりをサポートします！初心者の方も大歓迎です✨」
                     </p>
                 </div>
                 <!-- Manato -->
-                <div class="relative px-4">
+                <div class="px-4">
                     <span class="text-gold serif text-[10px] tracking-[0.3em] uppercase block mb-3 opacity-60">Instructor</span>
                     <h3 class="text-xl md:text-3xl mb-8 serif font-bold text-black tracking-[0.3em]">Manato</h3>
                     <div class="w-8 h-px bg-gold mx-auto mb-8"></div>
                     <p class="text-gray-600 text-[15px] md:text-[16px] leading-[2.2] font-light italic">
-                        「お客様一人一人にあったペースで目標達成の為に、<br class="hidden md:block">楽しく、やりがいの感じる時間を提供致します！<br class="hidden md:block">ダイエット目的や姿勢改善など多岐にわたりご対応させて頂きます」
+                        「お客様一人一人にあったペースで目標達成の為に、楽しく、やりがいの感じる時間を提供致します！ダイエット目的や姿勢改善など多岐にわたりご対応させて頂きます」
                     </p>
                 </div>
             </div>
@@ -282,9 +285,9 @@
         <div class="max-w-4xl mx-auto">
             <h2 class="text-2xl md:text-3xl text-center mb-20 md:mb-28 section-title serif font-normal tracking-widest uppercase text-black">Price Menu</h2>
             
-            <div class="mb-16 bg-white p-8 md:p-12 rounded-sm border-l-4 border-gold shadow-sm relative overflow-hidden text-left">
+            <div class="mb-16 bg-white p-6 md:p-12 rounded-sm border-l-4 border-gold shadow-sm relative overflow-hidden text-left">
                 <div class="mb-8">
-                    <span class="campaign-badge inline-block text-white text-xs md:text-sm px-6 py-2 tracking-[0.2em] font-bold rounded-full uppercase">
+                    <span class="campaign-badge inline-block text-white text-xs md:text-sm px-6 py-2 tracking-[0.2em] font-bold rounded-full">
                         期間限定のキャンペーン
                     </span>
                 </div>
@@ -311,9 +314,9 @@
                 </div>
             </div>
 
-            <div class="space-y-0 text-sm md:text-base mb-16 px-2">
+            <div class="space-y-0 text-sm md:text-base mb-16">
                 <div class="price-row flex justify-between py-6 items-center">
-                    <span class="serif text-black text-left">トレーニング・ピラティス 60分 単発</span>
+                    <span class="serif text-black">トレーニング・ピラティス 60分 単発</span>
                     <span class="font-bold">¥7,500</span>
                 </div>
                 <div class="price-row flex justify-between py-6 items-center">
@@ -348,9 +351,9 @@
         </div>
     </section>
 
-    <!-- SNS Section -->
-    <section id="connect" class="py-24 md:py-32 bg-forest text-white text-center">
-        <div class="max-w-4xl mx-auto px-6">
+    <!-- Connect Section -->
+    <section id="connect" class="py-24 md:py-32 bg-forest text-white text-center px-6">
+        <div class="max-w-4xl mx-auto">
             <span class="text-gold text-[10px] tracking-[0.5em] uppercase mb-8 block font-bold">SNS</span>
             <h2 class="text-xl md:text-3xl mb-12 serif font-normal">公式SNS</h2>
             <p class="text-[13px] md:text-sm text-gray-400 mb-16 font-light">小山市で本場・韓国式の自分磨きを。まずはお気軽にご連絡ください。</p>
@@ -359,7 +362,7 @@
                 <a href="https://line.me/R/ti/p/@897qgdmh" target="_blank" class="flex flex-col items-center p-8 border border-white/10 hover:bg-white/5 transition-all duration-500">
                     <i class="fab fa-line text-3xl mb-6 text-[#06C755]"></i>
                     <h3 class="serif text-lg md:text-xl mb-4 font-normal tracking-wider">Official LINE</h3>
-                    <p class="text-[12px] text-gray-400 leading-loose font-light">ご質問や空き状況の確認は、<br>こちらからお気軽に。</p>
+                    <p class="text-[12px] text-gray-400 leading-loose font-light">ご質問や空き状況の確認は、こちらからお気軽に。</p>
                     <span class="mt-8 text-[9px] tracking-[0.3em] uppercase border-b border-gold pb-1 text-gold">Open Chat</span>
                 </a>
                 <a href="https://www.instagram.com/seren_gym_pilates" target="_blank" class="flex flex-col items-center p-8 border border-white/10 hover:bg-white/5 transition-all duration-500">
@@ -375,13 +378,13 @@
     <!-- Access Section -->
     <section id="access" class="py-24 md:py-48 px-6 bg-white text-center md:text-left">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-center">
-            <div class="md:w-1/2">
+            <div class="md:w-1/2 w-full">
                 <h2 class="text-2xl md:text-3xl mb-16 section-title md:text-left serif font-normal tracking-widest uppercase text-black font-bold">Access</h2>
                 <div class="space-y-10 md:space-y-12 text-[13px] tracking-[0.2em] text-gray-500 font-light text-left">
                     <div class="pb-8 border-b border-gray-200">
                         <span class="font-bold text-black serif text-[11px] block mb-4 uppercase tracking-[0.5em] text-gold">Location</span>
                         <span class="leading-loose text-black font-medium text-base md:text-lg">〒323-0022 栃木県小山市駅東通り1丁目20-13 sinsinビル2階</span>
-                        <div class="mt-6 text-left">
+                        <div class="mt-6">
                             <a href="https://www.google.com/maps/dir/?api=1&destination=36.314643,139.808544&destination_place_id=ChIJN8R9Xv1_H2AR4H8v0e-S_34" target="_blank" class="inline-flex items-center justify-center gap-2 bg-stone-100 hover:bg-stone-200 text-stone-800 px-6 py-3 rounded text-[11px] tracking-widest uppercase transition-colors">
                                 <i class="fas fa-location-arrow"></i> Google Mapで見る
                             </a>
